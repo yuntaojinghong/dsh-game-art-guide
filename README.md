@@ -12,7 +12,23 @@ AI（纯文本模型）生成游戏时，默认会用 CSS 纯色块硬画、颜�
 
 ## 安装
 
-dsh skill 分用户级和项目级，二选一：
+> 说明：skill 是纯 Markdown 文件（不是 pnpm 插件），**不能用 `dsh plugin add` 安装**。把它放到 skills 目录即可被 dsh 自动发现。
+
+### 一行命令安装（从 GitHub）
+
+Linux / macOS / Git Bash：
+
+```bash
+git clone https://github.com/yuntaojinghong/dsh-game-art-guide.git && cp -r dsh-game-art-guide/game-art-guide ~/.dsh/skills/ && rm -rf dsh-game-art-guide
+```
+
+Windows PowerShell：
+
+```powershell
+git clone https://github.com/yuntaojinghong/dsh-game-art-guide.git; Copy-Item -Recurse dsh-game-art-guide\game-art-guide "$env:USERPROFILE\.dsh\skills\"; Remove-Item -Recurse -Force dsh-game-art-guide
+```
+
+### 手动安装（已下载仓库时）
 
 ```bash
 # 用户级（所有项目生效，推荐）
