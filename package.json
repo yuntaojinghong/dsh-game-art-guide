@@ -1,0 +1,28 @@
+{
+  "name": "dsh-game-art-guide",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness (dsh) 游戏美术规范 skill —— 10 种美术风格配色、UI/动画规范、游戏类型建议、中文字体排版，覆盖手机/网页/模组",
+  "type": "module",
+  "bin": {
+    "dsh-game-art-guide": "bin/install.js"
+  },
+  "files": [
+    "bin",
+    "skill"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "skill",
+    "game",
+    "art",
+    "游戏",
+    "美术",
+    "pixel-art",
+    "game-ui"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
