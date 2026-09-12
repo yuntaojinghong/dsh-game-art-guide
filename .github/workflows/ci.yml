@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: 自检 (node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ["18.x", "20.x", "22.x"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 自检（语法 / 包清单 / frontmatter / 风格数一致性 / 版本号 / 安装端到端）
+        run: npm run verify
+
+      - name: 校验 npm 发布内容
+        run: |
+          npm pack --dry-run 2>&1 | tee /tmp/pack.txt
+          if grep -qE 'scripts/|\.github/' /tmp/pack.txt; then
+            echo "::error::发布内容包含不应分发的文件（scripts/ 或 .github/）"
+            exit 1
+          fi
+          for f in bin/install.js skill/SKILL.md package.json README.md CHANGELOG.md LICENSE; do
+            grep -q "$f" /tmp/pack.txt || { echo "::error::发布内容缺少 $f"; exit 1; }
+          done
+          echo "OK：发布内容校验通过"

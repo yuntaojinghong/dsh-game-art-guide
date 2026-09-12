@@ -1,28 +1,49 @@
 {
   "name": "dsh-game-art-guide",
-  "version": "1.0.0",
-  "description": "DeepSeek Harness (dsh) 游戏美术规范 skill —— 10 种美术风格配色、UI/动画规范、游戏类型建议、中文字体排版，覆盖手机/网页/模组",
+  "version": "1.1.0",
+  "description": "DeepSeek Harness (dsh) skill：游戏美术规范——10 种美术风格配色系统、UI/动画规范、游戏类型建议、中文字体排版，覆盖手机/网页/模组",
   "type": "module",
   "bin": {
     "dsh-game-art-guide": "bin/install.js"
   },
   "files": [
     "bin",
-    "skill"
+    "skill",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
   ],
+  "scripts": {
+    "verify": "node scripts/verify.js",
+    "pack:dry": "npm pack --dry-run"
+  },
   "keywords": [
     "dsh",
     "deepseek-harness",
     "skill",
     "game",
+    "game-art",
+    "game-ui",
     "art",
     "游戏",
     "美术",
-    "pixel-art",
-    "game-ui"
+    "pixel-art"
   ],
+  "author": "yuntaojinghong",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuntaojinghong/dsh-game-art-guide.git"
+  },
+  "homepage": "https://github.com/yuntaojinghong/dsh-game-art-guide#readme",
+  "bugs": {
+    "url": "https://github.com/yuntaojinghong/dsh-game-art-guide/issues"
+  },
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
